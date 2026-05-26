@@ -26,3 +26,8 @@ void print_check(int a, int b);
 
 //sort, print
 void sort_two_value_print(int a, int b);
+
+
+//seletion sort
+bool check_sort(int* p, int size);
+void sort_(int arr[], int size);

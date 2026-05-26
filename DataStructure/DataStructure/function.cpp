@@ -53,7 +53,34 @@ void swap_no_temp(int& a, int& b)
 }
 
 //
-void sort_three(int arr[])
-{
 
+bool check_sort(int* p, int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        if (p[i] > p[i + 1]) 
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+void sort_(int arr[], int size)
+{
+    int min_index;
+
+    for (int i = 0; i < size-1; i++)
+    {   
+        min_index = i;
+
+        for (int j = i; j < size; j++)
+        {
+            if (arr[min_index] > arr[j])
+            {
+                min_index = j;
+            }
+        }
+        My_swap(arr[i], arr[min_index]);
+    }
 }
