@@ -1,0 +1,59 @@
+#include "myheader.h"
+
+swap_value& swap(int a, int b)
+{
+    swap_value s;
+    int temp = a;
+    a = b;
+    b = temp;
+    s.a = a;
+    s.b = b;
+
+    return s;
+}
+
+
+
+void sort_two_value_print(int a, int b)
+{
+    if (!check_two_sort(a, b))
+    {
+        My_swap(a, b);
+    }
+
+    print_check(a, b);
+}
+
+
+bool check_two_sort(int a, int b)
+{
+    if (a > b)
+    {
+        return false;
+    }
+    else
+    {
+        return true;
+    }
+}
+
+void print_check(int a, int b)
+{
+    std::cout << std::boolalpha;
+    std::cout << a << " " << b << " "\
+        << check_two_sort(a, b) << std::endl;
+}
+
+
+void swap_no_temp(int& a, int& b)
+{
+    a = a + b;
+    b = a - b;
+    a = a - b;
+}
+
+//
+void sort_three(int arr[])
+{
+
+}
