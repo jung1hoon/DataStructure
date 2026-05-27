@@ -6,7 +6,7 @@ using namespace std;
 int main()
 {
     const int size = 8;
-    int arr[size] = { 6,2,4,6,7,8,8,9 };
+    int arr[size] = { 6,100,4,6,10000,8,8,9 };
     
 
     sort_(arr, 8);

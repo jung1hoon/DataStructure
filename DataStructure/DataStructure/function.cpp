@@ -74,7 +74,7 @@ void sort_(int arr[], int size)
     {   
         min_index = i;
 
-        for (int j = i; j < size; j++)
+        for (int j = i+1; j < size; j++)
         {
             if (arr[min_index] > arr[j])
             {
