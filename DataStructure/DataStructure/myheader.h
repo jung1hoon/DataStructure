@@ -40,3 +40,7 @@ void bubble_sort(int arr[], int size);
 
 //insertion sort
 void insertion_sort(int arr[], int size);
+void insertion_sort2(int arr[], int size);
+
+//print_int_array
+void print_arr(int arr[], int size);

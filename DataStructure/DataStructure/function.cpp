@@ -18,6 +18,16 @@ std::ostream& operator <<(std::ostream& out, swap_value& swap)
     return out;
 }
 
+void print_arr(int arr[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << arr[i] << " ";
+    }
+
+    std::cout << std::endl;
+}
+
 void sort_two_value_print(int a, int b)
 {
     if (!check_two_sort(a, b))
@@ -126,12 +136,37 @@ void insertion_sort(int arr[], int size)
             if (arr[j - 1] > arr[j])
             {
                 My_swap(arr[j - 1], arr[j]);
-               
+                print_arr(arr, size);
             }
             else
             {
                 break;
             }
         }
+    }
+}
+
+void insertion_sort2(int arr[], int size)
+{
+    for (int i = 1; i < size; i++)
+    {
+        int temp = arr[i];
+        int j = i;
+
+        for (j; j > 0; j--)
+        {
+            if (temp < arr[j-1])
+            {
+                arr[j] = arr[j - 1];
+                print_arr(arr, size);
+            }
+            else
+            {
+                break;
+            }
+        }
+        arr[j] = temp;
+        print_arr(arr, size);
+        std::cout << std::endl;
     }
 }

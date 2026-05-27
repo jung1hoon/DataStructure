@@ -44,6 +44,9 @@ int main()
         }
     }
 
+    int arr2[5] = { 5,4,3,2,1 };
+
+    insertion_sort2(arr2, 5);
 
     
         
