@@ -56,7 +56,7 @@ void swap_no_temp(int& a, int& b)
 
 bool check_sort(int* p, int size)
 {
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size-1; i++)
     {
         if (p[i] > p[i + 1]) 
         {
@@ -82,5 +82,20 @@ void sort_(int arr[], int size)
             }
         }
         My_swap(arr[i], arr[min_index]);
+    }
+}
+
+
+void sort2(int arr[], int size)
+{
+    for (int i = 0; i < size-1; i++)
+    {
+        for (int j = 0; j < size-1-i; j++)
+        {
+            if (arr[j] > arr[j + 1])
+            {
+                My_swap(arr[j], arr[j + 1]);
+            }
+        }
     }
 }
