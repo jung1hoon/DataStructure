@@ -12,7 +12,11 @@ swap_value& swap(int a, int b)
     return s;
 }
 
-
+std::ostream& operator <<(std::ostream& out, swap_value& swap)
+{
+    out << swap.a << " " << swap.b;
+    return out;
+}
 
 void sort_two_value_print(int a, int b)
 {
@@ -86,16 +90,24 @@ void sort_(int arr[], int size)
 }
 
 
-void sort2(int arr[], int size)
+void bubble_sort(int arr[], int size)
 {
     for (int i = 0; i < size-1; i++)
     {
+        bool swapped = false;
+
         for (int j = 0; j < size-1-i; j++)
         {
             if (arr[j] > arr[j + 1])
             {
                 My_swap(arr[j], arr[j + 1]);
+                swapped = true;
             }
+        }
+
+        if (!swapped)
+        {
+            break;
         }
     }
 }

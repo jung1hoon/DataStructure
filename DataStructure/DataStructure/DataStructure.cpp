@@ -5,11 +5,11 @@ using namespace std;
 
 int main()
 {
-    const int size = 8;
-    int arr[size] = { 6,100,4,6,10000,8,8,9 };
+    const int size = 5;
+    int arr[size] = { 5,4,3,2,1 };
     
 
-    sort_(arr, 8);
+    bubble_sort(arr, 5);
 
     cout << std::boolalpha;
 
@@ -17,7 +17,7 @@ int main()
     {
         cout << arr[i] << " ";
     }
-    cout << check_sort(arr, 8) << endl;
+    cout << check_sort(arr, 5) << endl;
     
     int arr1[3];
   
@@ -31,7 +31,7 @@ int main()
                 arr1[1] = j;
                 arr1[2] = k;
 
-                sort2(arr1, 3);
+                bubble_sort(arr1, 3);
 
                 for (int p = 0; p < 3; p++)
                 {
