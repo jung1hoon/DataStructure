@@ -6,10 +6,10 @@ using namespace std;
 int main()
 {
     const int size = 5;
-    int arr[size] = { 5,4,3,2,1 };
+    int arr[size] = { 3,1,5,2,4 };
     
 
-    bubble_sort(arr, 5);
+    insertion_sort(arr, 5);
 
     cout << std::boolalpha;
 

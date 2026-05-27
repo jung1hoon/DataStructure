@@ -111,3 +111,27 @@ void bubble_sort(int arr[], int size)
         }
     }
 }
+
+// 삽입 정렬
+// 1 앞쪽부터 하나씩 정렬
+// 2 arr[i] > arr[i+1] 이 생기면 arr[i+1]을 앞에 있는 것들과\
+//   하나씩 비교하면서 정렬
+// (5,4),6,2,1 -> (4,(5,3)),2,1 -> 3,4,(5,2),1 ...
+void insertion_sort(int arr[], int size)
+{
+    for (int i = 1; i < size; i++)
+    {
+        for (int j = i; j > 0; j--)
+        {
+            if (arr[j - 1] > arr[j])
+            {
+                My_swap(arr[j - 1], arr[j]);
+               
+            }
+            else
+            {
+                break;
+            }
+        }
+    }
+}
