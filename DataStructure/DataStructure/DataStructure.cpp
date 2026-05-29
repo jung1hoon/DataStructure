@@ -1,4 +1,5 @@
-#include "myheader.h"
+#include "sort_header.h"
+#include "search.h"
 
 using namespace std;
     
@@ -44,12 +45,11 @@ int main()
         }
     }
 
-    int arr2[5] = { 5,4,3,2,1 };
+    int arr2[5] = {1,2,3,4,5};
 
     insertion_sort2(arr2, 5);
 
     
-        
 
 
 

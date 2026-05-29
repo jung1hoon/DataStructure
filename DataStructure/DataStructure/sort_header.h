@@ -1,14 +1,6 @@
 #pragma once
 #include <iostream>
 
-struct swap_value
-{
-	int a;
-	int b;
-
-};
-
-std::ostream& operator <<(std::ostream& out, swap_value& swap);
 
 
 //swap
@@ -20,7 +12,6 @@ void My_swap(T &a, T &b)
 	b = temp;
 }
 
-swap_value& swap(int a, int b);
 
 
 //check sorting(two values) and print

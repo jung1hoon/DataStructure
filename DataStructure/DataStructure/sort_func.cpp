@@ -1,22 +1,5 @@
-#include "myheader.h"
+#include "sort_header.h"
 
-swap_value& swap(int a, int b)
-{
-    swap_value s;
-    int temp = a;
-    a = b;
-    b = temp;
-    s.a = a;
-    s.b = b;
-
-    return s;
-}
-
-std::ostream& operator <<(std::ostream& out, swap_value& swap)
-{
-    out << swap.a << " " << swap.b;
-    return out;
-}
 
 void print_arr(int arr[], int size)
 {
