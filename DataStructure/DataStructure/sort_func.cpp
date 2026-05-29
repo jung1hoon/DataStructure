@@ -11,6 +11,17 @@ void print_arr(int arr[], int size)
     std::cout << std::endl;
 }
 
+void print_arr(char arr[], int size)
+{
+    for (int i = 0; i < size; i++)
+    {
+        std::cout << arr[i] << " ";
+    }
+
+    std::cout << std::endl;
+}
+
+
 void sort_two_value_print(int a, int b)
 {
     if (!check_two_sort(a, b))
