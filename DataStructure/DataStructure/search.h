@@ -54,3 +54,7 @@ int sorted_count_tp(T arr[], int size, T n)
 
 	return count;
 }
+
+// 정렬된 char array에서 문자와 그 문자의 개수 출력
+void sorted_char_num1(char arr[], int size);
+void sorted_char_num2(char arr[], int size);

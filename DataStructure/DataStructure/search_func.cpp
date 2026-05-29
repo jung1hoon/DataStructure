@@ -103,3 +103,56 @@ void search_test1(char arr[], int count_table[])
 	char_n_number(count_table, 26);
 
 }
+
+
+void sorted_char_num1(char arr[], int size)
+{
+	for (char i = 'a'; i <= 'z'; i++)
+	{
+		int start_index = linearsearch_tp(arr, size, i);
+		int count = 0;
+
+		if (start_index == -1)
+		{
+			continue;
+		}
+
+		for (int j = start_index; j < size - 1; j++)
+		{
+			if (arr[j] == i)
+			{
+				count++;
+			}
+			else
+			{
+				break;
+			}
+		}
+
+		std::cout << i << count;
+	}
+
+}
+
+void sorted_char_num2(char arr[], int size)
+{
+	int i = 0;
+	int count = 0;
+	char current = arr[i];
+	
+
+	for (; i < size ;)
+	{
+		if (arr[i] == current)
+		{
+			count++;
+			i++;
+		}
+		else
+		{
+			std::cout << current << count;
+			count = 0;
+			current = arr[i];
+		}
+	}
+}
