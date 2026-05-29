@@ -140,10 +140,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="DataStructure.cpp" />
-    <ClCompile Include="function.cpp" />
+    <ClCompile Include="search_func.cpp" />
+    <ClCompile Include="sort_func.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="myheader.h" />
+    <ClInclude Include="search.h" />
+    <ClInclude Include="sort_header.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

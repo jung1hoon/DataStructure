@@ -1,3 +1,69 @@
 #include "search.h"
 
+int count(int arr[], int size, int n)
+{
+	int count = 0;
+
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] == n)
+		{
+			count++;
+		}
+	}
+
+	return count;
+}
+
+int linearsearch(int arr[], int size, int n)
+{	
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] == n)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+// ex) 1 1 1 1 2 3 4
+int sorted_count(int arr[], int size, int n)
+{
+	int start = linearsearch(arr, size, n);
+	int count = 0;
+
+	if (start == -1)
+	{
+		return 0;
+	}
+
+	while (start < size && arr[start] == n)
+	{
+		count++;
+		start++;
+	}
+
+	return count;
+}
+
+
+int* search_indexes(int arr[],int size, int n)
+{
+	int count_ = count(arr, size, n);
+	int index = 0;
+	int* ptr = new int[count_];
+
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] == n)
+		{
+			ptr[index] = i;
+			index++;
+		}
+	}
+
+	return ptr;
+}
+
 
