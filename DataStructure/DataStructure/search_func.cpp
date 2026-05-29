@@ -66,4 +66,29 @@ int* search_indexes(int arr[],int size, int n)
 	return ptr;
 }
 
+int char_count(char* arr, char c)
+{
+	int result = 0;
 
+	for (int i = 0; arr[i] != '\0'; i++)
+	{
+		if (arr[i] == c)
+		{
+			result++;
+		}
+	}
+	return result;
+}
+
+
+void char_n_number(int table[], int size)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (table[i] > 0)
+		{
+			std::cout << char(i + 97) << table[i];
+		}
+	}
+	std::cout << std::endl;
+}
