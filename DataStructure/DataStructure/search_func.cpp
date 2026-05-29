@@ -92,3 +92,14 @@ void char_n_number(int table[], int size)
 	}
 	std::cout << std::endl;
 }
+
+void search_test1(char arr[], int count_table[])
+{
+	for (int i = 0; i < 26; i++)
+	{
+		count_table[i] = char_count(arr, char(i + 97));
+	}
+
+	char_n_number(count_table, 26);
+
+}

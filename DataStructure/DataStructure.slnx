@@ -4,4 +4,5 @@
     <Platform Name="x86" />
   </Configurations>
   <Project Path="DataStructure/DataStructure.vcxproj" Id="d61ec44a-c453-4a9a-be93-16e7b5dbcf47" />
+  <Project Path="DataStructure_ch2/DataStructure_ch2.vcxproj" Id="894edf51-1dbe-4c4e-a601-0ea291aa5f3b" />
 </Solution>

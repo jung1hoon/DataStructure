@@ -15,3 +15,5 @@ int sorted_count(int arr[], int size, int n);
 
 // 문자와 그 문자 개수 출력 ex) a3b4d6...
 void char_n_number(int table[], int size);
+// 테스트용 함수
+void search_test1(char arr[], int count_table[]);

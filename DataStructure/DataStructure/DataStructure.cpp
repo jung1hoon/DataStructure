@@ -10,12 +10,8 @@ int main()
     char arr[] = "abbdcsaggsada";
     int table[26] = { 0 };
 
-    for (int i = 0; i < 26; i++)
-    {
-        table[i] = char_count(arr, char(i + 97));
-    }
-    
-    char_n_number(table, 26);
+    search_test1(arr, table);
+
 
 
 
