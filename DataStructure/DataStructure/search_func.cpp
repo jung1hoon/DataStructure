@@ -156,3 +156,56 @@ void sorted_char_num2(char arr[], int size)
 		}
 	}
 }
+
+
+int MyBinarySearch(int arr[], int size, int n)
+{
+	int left_index = 0;
+	int right_index = size - 1;
+	int middle_index = (left_index + right_index) / 2;
+
+	while (middle_index >= 0 && middle_index < size && arr[middle_index] != n)
+	{
+		if (arr[middle_index] < n)
+		{
+			left_index = middle_index + 1;
+		}
+		else
+		{
+			right_index = middle_index - 1;
+		}
+
+		if (left_index > right_index)
+		{
+			return -1;
+		}
+
+		middle_index = (left_index + right_index) / 2;
+	}
+	return middle_index;
+}
+
+int BinarySearch(int arr[], int size, int n)
+{
+	int left_index = 0;
+	int right_index = size - 1;
+
+	while (left_index <= right_index)
+	{
+		int middle_index = (left_index + right_index) / 2;
+
+		if (arr[middle_index] == n)
+		{
+			return middle_index;
+		}
+		else if(arr[middle_index] < n)
+		{
+			left_index = middle_index + 1;
+		}
+		else
+		{
+			right_index = middle_index - 1;
+		}
+	}
+	return -1;
+}

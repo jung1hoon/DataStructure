@@ -7,16 +7,15 @@ using namespace std;
 int main()
 {
     
-    char arr[] = "abbdcsaggsadazzzfggbhaii";
+    int arr[] = {0,1,2,4,3,5,8,7,6,9};
     int size = sizeof(arr) / sizeof(arr[0]);
-    int table[26] = { 0 };
 
-   
+    insertion_sort2(arr, size);
+    print_arr(arr, size);
 
-    insertion_sort_tp(arr, size-1);
-    print_arr(arr, size-1);
-    sorted_char_num2(arr, size);
+    int n_index = BinarySearch(arr, size, 9);
 
+    cout << n_index << endl;
 
     return 0;
 }

@@ -152,7 +152,7 @@ void insertion_sort2(int arr[], int size)
             if (temp < arr[j-1])
             {
                 arr[j] = arr[j - 1];
-                print_arr(arr, size);
+               
             }
             else
             {
@@ -160,7 +160,6 @@ void insertion_sort2(int arr[], int size)
             }
         }
         arr[j] = temp;
-        print_arr(arr, size);
-        std::cout << std::endl;
+        
     }
 }
