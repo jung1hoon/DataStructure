@@ -17,3 +17,40 @@ int sorted_count(int arr[], int size, int n);
 void char_n_number(int table[], int size);
 // 테스트용 함수
 void search_test1(char arr[], int count_table[]);
+
+
+
+
+template<typename T>
+int linearsearch_tp(T arr[], int size, T n)
+{
+	for (int i = 0; i < size; i++)
+	{
+		if (arr[i] == n)
+		{
+			return i;
+		}
+	}
+	return -1;
+}
+
+
+template<typename T>
+int sorted_count_tp(T arr[], int size, T n)
+{
+	int start = linearsearch_tp<T>(arr, size, n);
+	int count = 0;
+
+	if (start == -1)
+	{
+		return 0;
+	}
+
+	while (start < size && arr[start] == n)
+	{
+		count++;
+		start++;
+	}
+
+	return count;
+}

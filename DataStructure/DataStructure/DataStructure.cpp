@@ -16,6 +16,9 @@ int main()
     insertion_sort_tp(arr, size-1);
     print_arr(arr, size-1);
 
+    int result = sorted_count_tp(arr, size, 'a');
+
+    cout << result << endl;
 
 
     return 0;
