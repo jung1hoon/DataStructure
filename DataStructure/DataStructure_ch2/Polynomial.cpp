@@ -86,7 +86,7 @@ Polynomial Polynomial::Mult(const Polynomial& Poly)
 
 float power(float x, int exp)
 {
-	float result = 1;
+	float result = 1.0f;
 
 	if (exp == 0)
 	{
@@ -105,7 +105,7 @@ float power(float x, int exp)
 // 1 + x + x^2
 float Polynomial::Eval(float x)
 {
-	float result = 0;
+	float result = 0.0f;
 
 	for (int i = 0; i < capacity; i++)
 	{
