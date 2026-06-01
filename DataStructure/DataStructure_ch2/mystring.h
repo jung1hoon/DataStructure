@@ -148,6 +148,40 @@ public:
 		return s;
 	}
 
+	Mystring& Concat(const Mystring& str)
+	{
+		int origin = size;
+		this->Resize(size + str.size);
+
+		for (int i = 0; i < str.size; i++)
+		{
+			ptr[origin + i] = str.ptr[i];
+		}
+
+		return *this;
+	}
+
+	//  1 2 3 (7 8 9) 4 5 6 <---> 1 2 3 4 5 6 0 0 0
+	Mystring& Insert(const Mystring& str, int start)
+	{
+		Mystring temp = str; // 자기 자신을 파라미터에 넣는경우 꼬일수 있기 때문에 임시 객체 생성
+		int origin = size;
+		this->Resize(size + temp.size);
+
+		for (int i = 0; i < temp.size; i++)
+		{
+			for (int j = 0; j < origin - start - 1; j++)
+			{
+				ptr[origin - j + i] = ptr[origin - 1 - j + i];
+			}
+			//for (int t = origin-1; t >= start; t--)
+			//{
+			//	ptr[temp.size + t] = ptr[t];
+			//}
+			ptr[start + i] = temp.ptr[i];
+		}
+		return *this;
+	}
 
 		operator char*()
 	{

@@ -8,13 +8,11 @@ int main()
 {
 	Mystring str1("Hello");
 	Mystring str2(str1);
-	Mystring str3("HHHH");
+	Mystring str3;
 
-	str3 = str1;
+	
 
-	cout << str1 << endl;
-	cout << str2 << endl;
-	cout << str3 << endl;
+	cout << str1.Insert(Mystring("World"), 1) << endl;
 
 
 	return 0;
