@@ -1,7 +1,18 @@
-#include <iostream>
+#include "Recur_func.h"
+
+using namespace std;
+
 
 int main()
 {
-    std::cout << "Hello World!\n";
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int size = sizeof(arr) / sizeof(arr[0]);
+
+
+	int result = RecurSum(arr, size);
+
+	cout << result << endl;
+
+	return 0;
 }
 

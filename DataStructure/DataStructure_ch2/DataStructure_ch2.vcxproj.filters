@@ -18,5 +18,13 @@
     <ClCompile Include="DataStructure_ch2.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Recur_func.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Recur_func.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
