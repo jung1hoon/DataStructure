@@ -21,9 +21,15 @@
     <ClCompile Include="Recur_func.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="mystring.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Recur_func.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="mystring.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

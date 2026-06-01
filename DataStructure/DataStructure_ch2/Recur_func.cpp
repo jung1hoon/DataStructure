@@ -115,3 +115,29 @@ int Recur_BinarySearch(int* arr, int left_index, int right_index, int n)
 		return -1;
 	}
 }
+
+// abc -> abc acb bac bca cab cba
+void RecurPermutation(char * arr, int left, int right)
+{
+
+	if (left >= right)
+	{	
+		for (int j = 0; j <= right; j++)
+		{
+			std::cout << arr[j];
+		}
+		std::cout << std::endl;
+		return;
+	}
+	else
+	{
+		for (int i = left; i <= right; i++)
+		{
+			std::swap(arr[left], arr[i]);
+
+			RecurPermutation(arr, left + 1, right);
+
+			std::swap(arr[left], arr[i]);
+		}
+	}
+}

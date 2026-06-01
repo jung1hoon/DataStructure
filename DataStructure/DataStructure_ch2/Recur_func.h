@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include <algorithm>
 
 //배열 합 (재귀 함수 버전)
 int RecurSum(int* arr, int size);
@@ -11,3 +12,6 @@ int Fibo_itr(int n); //일반 반복문 활용
 
 //이진탐색 - 재귀함수 활용
 int Recur_BinarySearch(int* arr, int left_index, int right_index, int n);
+
+//순열 재귀함수
+void RecurPermutation(char* arr, int left, int right);
