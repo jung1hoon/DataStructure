@@ -9,7 +9,7 @@ int main()
 	int size = sizeof(arr) / sizeof(arr[0]);
 
 
-	int result = RecurSum(arr, size);
+	int result = Fibo_itr(5);
 
 	cout << result << endl;
 
