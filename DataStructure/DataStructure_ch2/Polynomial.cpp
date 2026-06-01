@@ -30,9 +30,9 @@ Polynomial::~Polynomial()
 	delete[] coeffs;
 }
 
-int Polynomial::MaxDegree()
+int Polynomial::MaxDegree() 
 {	
-	int index;
+	int index = 0;
 	for (int i = 0; i < capacity; i++)
 	{
 		if (coeffs[i] != 0.0f)
@@ -65,9 +65,19 @@ Polynomial Polynomial::Mult(const Polynomial& Poly)
 {
 	Polynomial temp;
 	for (int i = 0; i < capacity; i++)
-	{
+	{	
+		if (coeffs[i] == 0.0f)
+		{
+			continue;
+		}
+
 		for (int j = 0; j < Poly.capacity; j++)
 		{
+			if (Poly.coeffs[j] == 0.0f)
+			{
+				continue;
+			}
+
 			temp.coeffs[i+j] += (this->coeffs[i] * Poly.coeffs[j]);
 		}
 	}
