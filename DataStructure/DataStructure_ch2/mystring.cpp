@@ -170,7 +170,7 @@ Mystring Mystring::Substr(int start, int num)
 	return s;
 }
 
-Mystring& Mystring::Concat(const Mystring& str)
+Mystring& Mystring::Concat(const Mystring& str) 
 {
 	int origin = size;
 	this->Resize(size + str.size);
@@ -241,6 +241,7 @@ std::ostream& operator <<(std::ostream& out, const Mystring& str)
 	}
 	return out;
 }
+
 
 
 
