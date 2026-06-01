@@ -32,7 +32,12 @@ Mystring::Mystring(const Mystring& str)
 Mystring::~Mystring()
 {
 	//std::cout << "delete ptr" << std::endl;
-	delete[] ptr;
+	if (ptr != nullptr)
+	{
+		delete[] ptr;
+		ptr = nullptr;
+		size = 0;
+	}
 }
 
 // abdfjdas <-> fjd
@@ -100,11 +105,8 @@ bool Mystring::IsEqual(const Mystring& str)
 			{
 				return false;
 			}
-			else
-			{
-				return true;
-			}
 		}
+		return true;
 	}
 }
 
