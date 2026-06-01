@@ -10,9 +10,9 @@ int main()
 	Mystring str2(str1);
 	Mystring str3;
 
-	
+	int r = str1.Find(Mystring("o"));
 
-	cout << str1.Insert(Mystring("World"), 1) << endl;
+	cout << r << endl;
 
 
 	return 0;
