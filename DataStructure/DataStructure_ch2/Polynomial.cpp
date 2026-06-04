@@ -133,3 +133,153 @@ void Polynomial::Print()
 	}
 	std::cout << std::endl;
 }
+
+
+//SparsePolynomial
+
+void SparsePolynomial::NewTerm(float coef, int exp)
+{
+	if (coef == 0.0f)
+	{
+		return;
+	}
+
+	if (num_term == 0)
+	{
+		ptr = new Term[capacity];
+
+		ptr[0].coeffs = coef;
+		ptr[0].exp = exp;
+
+		num_term++;
+		return;
+	}
+
+
+	for (int i = 0; i < num_term; i++)
+	{
+		if (ptr[i].exp == exp)
+		{
+			ptr[i].coeffs += coef;
+			return;
+		}
+	}
+
+	if (num_term >= capacity)
+	{
+		this->capacity = capacity * 2;
+
+		if (capacity > num_term)
+		{
+			Term* new_ptr = new Term[capacity];
+
+			for (int i = 0; i < num_term; i++)
+			{
+				new_ptr[i] = ptr[i];
+			}
+
+			if (ptr != nullptr)
+			{
+				delete[] ptr;
+			}
+
+			ptr = new_ptr;
+
+			ptr[num_term].coeffs = coef;
+			ptr[num_term].exp = exp;
+
+			num_term++;
+		}
+		else
+		{
+			return;
+		}
+	}
+	else
+	{
+		ptr[num_term].coeffs = coef;
+		ptr[num_term].exp = exp;
+
+		num_term++;
+	}
+	
+	std::sort(ptr, ptr + num_term, [](const Term& a, const Term& b) {return a.exp < b.exp;});
+}
+
+float SparsePolynomial::Eval(float x)
+{
+	float result = 0.0f;
+
+	for (int i = 0; i < num_term; i++)
+	{
+		result += ptr[i].coeffs * power(x, (ptr[i].exp));
+	}
+
+	return result;
+}
+
+SparsePolynomial SparsePolynomial::Add(const SparsePolynomial& poly)
+{
+	SparsePolynomial p;
+	
+
+	int i = 0, j = 0;
+	while (i < num_term && j < poly.num_term)
+	{
+		if (ptr[i].exp == poly.ptr[j].exp)
+		{
+			float sum = ptr[i].coeffs + poly.ptr[j].coeffs;
+			p.NewTerm(sum, ptr[i].exp);
+			i++;
+			j++;
+		}
+		else if (ptr[i].exp > poly.ptr[j].exp)
+		{
+			p.NewTerm(poly.ptr[j].coeffs, poly.ptr[j].exp);
+			j++;
+		}
+		else
+		{
+			p.NewTerm(ptr[i].coeffs, ptr[i].exp);
+			i++;
+		}
+	}
+
+	for (; i < num_term; i++)
+	{
+		p.NewTerm(ptr[i].coeffs, ptr[i].exp);
+	}
+
+	for (; j < poly.num_term; j++)
+	{
+		p.NewTerm(poly.ptr[j].coeffs, poly.ptr[j].exp);
+	}
+
+	return p;
+}
+
+void SparsePolynomial::Print()
+{
+	if (num_term != 0)
+	{
+		for (int i = 0; i < num_term; i++)
+		{
+			if (i == 0 && ptr[i].exp == 0)
+			{
+				std::cout << ptr[i].coeffs << " ";
+			}
+			else if(i == 0 && ptr[i].exp != 0)
+			{
+				std::cout << ptr[i].coeffs << "x^" << ptr[i].exp << " ";
+			}
+			else
+			{
+				std::cout << "+" << " " << ptr[i].coeffs << "x^" << ptr[i].exp << " ";
+			}
+		}
+	}
+	else
+	{
+		std::cout << "Null" << std::endl;
+	}
+}

@@ -7,34 +7,30 @@ using namespace std;
 
 int main()
 {
-	Polynomial poly;
-	Polynomial poly2;
 
-	poly.NewTerm(1.0f, 0);
-	poly.NewTerm(2.0f, 1);
-	poly.NewTerm(1.0f, 2);
-	poly2.NewTerm(1.0f, 2);
-	poly2.NewTerm(1.0f, 0);
+	SparsePolynomial p1;
+	SparsePolynomial p2;
 
-	poly.Print();
-	poly2.Print();
+	p1.NewTerm(1, 0);
+	p1.NewTerm(2, 1);
+	p1.NewTerm(1, 2);
+	p1.NewTerm(1, 3);
 
-	cout << poly.MaxDegree() << endl;
-	cout << poly2.MaxDegree() << endl;
+	p2.NewTerm(1, 0);
+	p2.NewTerm(2, 1);
+	p2.NewTerm(1, 4);
 
-	cout << poly.Eval(0) << endl;
-	cout << poly.Eval(1) << endl;
-	cout << poly.Eval(2) << endl;
+	SparsePolynomial p3 = p1.Add(p2);
 
-	Polynomial add_poly = poly.Add(poly2);
-	Polynomial mult_poly = poly.Mult(poly2);
 
-	add_poly.Print();
-	mult_poly.Print();
+	p1.Print();
+	cout << endl;
+	p2.Print();
+	cout << endl;
+	p3.Print();
+	cout << endl;
 
-	cout << add_poly.MaxDegree() << endl;
-	cout << mult_poly.MaxDegree() << endl;
-
+	cout << p1.Eval(3) << " " << p2.Eval(2) << " " << p3.Eval(1) << endl;
 
 
 	return 0;
