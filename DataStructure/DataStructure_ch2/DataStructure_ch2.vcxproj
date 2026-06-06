@@ -145,6 +145,7 @@
     <ClCompile Include="Recur_func.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Matrix.h" />
     <ClInclude Include="mystring.h" />
     <ClInclude Include="Polynomial.h" />
     <ClInclude Include="Recur_func.h" />

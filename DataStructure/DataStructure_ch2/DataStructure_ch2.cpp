@@ -3,51 +3,39 @@
 #include "Polynomial.h"
 //#include <vector>
 #include "vector.h"
-
+#include "Matrix.h"
 
 using namespace std;
 
 
 int main()
 {
-	Myvector<int> vec1;
+	Matrix<int> mtx1(2,3);
 
-	vec1.push_back(0);
-	vec1.push_back(1);
-	vec1.push_back(2);
-	vec1.push_back(3);
-	vec1.push_back(4);
+	mtx1.SetValue(0, 0, 0);
+	mtx1.SetValue(0, 1, 1);
+	mtx1.SetValue(0, 2, 2);
+	mtx1.SetValue(1, 0, 3);
+	mtx1.SetValue(1, 1, 4);
+	mtx1.SetValue(1, 2, 5);
 
-	Myvector<int> vec2(vec1);
-	Myvector<int> vec3;
+	Matrix<int> mtx2(mtx1);
 
-	vec3 = vec2;
+	Matrix<int> mtx3 = mtx1.Add(mtx2);
 
-	vec1.reserve(30);
+	Matrix<int> mtx4 = mtx1.Transpose3();
 
-
-	cout << "Vec1's size: " << vec1.size() << endl;
-	cout << "Vec1's capacity: " << vec1.capacity() << endl;
-
+	mtx1.print();
 	cout << endl;
 
-	cout << "Vec2's size: " << vec2.size() << endl;
-	cout << "Vec2's capacity: " << vec2.capacity() << endl;
-
+	mtx2.print();
 	cout << endl;
 
-	cout << "Vec3's size: " << vec3.size() << endl;
-	cout << "Vec3's capacity: " << vec3.capacity() << endl;
-
+	mtx3.print();
 	cout << endl;
 
-	vec1.print();
-	vec2.print();
-	vec3.print();
-
-	vec1[0] = 100;
-
-	cout << vec1[0] << endl;
+	mtx4.print();
+	cout << endl;
 
 	return 0;
 }
