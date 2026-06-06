@@ -148,6 +148,7 @@
     <ClInclude Include="mystring.h" />
     <ClInclude Include="Polynomial.h" />
     <ClInclude Include="Recur_func.h" />
+    <ClInclude Include="vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
