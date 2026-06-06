@@ -36,7 +36,7 @@ public:
 		}
 	}
 
-	void push_back(T t)
+	void push_back(const T& t)
 	{
 		if (size_ < capacity_)
 		{
