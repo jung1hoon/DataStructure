@@ -114,4 +114,9 @@ public:
 
 		return *this;
 	}
+
+	T& operator[](int index)
+	{
+		return ptr[index];
+	}
 };

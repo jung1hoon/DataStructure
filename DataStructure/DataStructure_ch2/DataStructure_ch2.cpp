@@ -45,6 +45,9 @@ int main()
 	vec2.print();
 	vec3.print();
 
+	vec1[0] = 100;
+
+	cout << vec1[0] << endl;
 
 	return 0;
 }
