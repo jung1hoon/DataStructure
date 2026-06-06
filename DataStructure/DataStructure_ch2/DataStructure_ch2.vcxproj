@@ -139,12 +139,14 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Array2D.cpp" />
     <ClCompile Include="DataStructure_ch2.cpp" />
     <ClCompile Include="mystring.cpp" />
     <ClCompile Include="Polynomial.cpp" />
     <ClCompile Include="Recur_func.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Array2D.h" />
     <ClInclude Include="Matrix.h" />
     <ClInclude Include="mystring.h" />
     <ClInclude Include="Polynomial.h" />
