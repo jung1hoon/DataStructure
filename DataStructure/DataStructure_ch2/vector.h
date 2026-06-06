@@ -45,7 +45,7 @@ public:
 		}
 		else if (size_ == capacity_)
 		{
-			resize(capacity_ * 2);
+			reserve(capacity_ * 2);
 			ptr[size_] = t;
 			size_++;
 		}
