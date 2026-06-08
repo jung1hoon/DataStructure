@@ -144,6 +144,7 @@
     <ClCompile Include="mystring.cpp" />
     <ClCompile Include="Polynomial.cpp" />
     <ClCompile Include="Recur_func.cpp" />
+    <ClCompile Include="SparseMatrix.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Array2D.h" />
@@ -151,6 +152,7 @@
     <ClInclude Include="mystring.h" />
     <ClInclude Include="Polynomial.h" />
     <ClInclude Include="Recur_func.h" />
+    <ClInclude Include="SparseMatrix.h" />
     <ClInclude Include="vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -5,40 +5,35 @@
 #include "vector.h"
 #include "Matrix.h"
 #include "Array2D.h"
+#include "SparseMatrix.h"
+
 
 using namespace std;
 
 
 int main()
 {
-	Array2D arr1(2, 3);
+	SparseMatrix a(3,4,6);
 
-	arr1.SetValue(0, 0, 0);
-	arr1.SetValue(0, 1, 1);
-	arr1.SetValue(0, 2, 2);
-	arr1.SetValue(1, 0, 3);
-	arr1.SetValue(1, 1, 4);
-	arr1.SetValue(1, 2, 5);
+	a.SetValue(0, 1, 3);
+	a.SetValue(1, 3, 4);
+	a.SetValue(0, 2, 5);
+	a.SetValue(2, 3, 3);
+	a.SetValue(0, 0, 2);
+	a.SetValue(2, 1, 6);
 
-	Array2D arr2 = arr1;
+	a.PrintTerms();
 
-	Array2D arr3 = arr1.Add(arr1);
+	a.Print();
 
-	Array2D arr4 = arr3.Transpose();
+	cout << a.GetValue(2, 3) << endl;
 
-	arr1.print();
-	cout << endl;
+	SparseMatrix b = a.Transpose();
 
-	arr2.print();
-	cout << endl;
+	b.PrintTerms();
+	b.Print();
 
-	arr3.print();
-	cout << endl;
-
-	arr4.print();
-	cout << endl;
-
-	cout << arr3.GetValue(1, 2) << " " << arr4.GetValue(2, 1) << endl;
+	cout << b.GetValue(3, 2) << endl;
 
 	return 0;
 }
