@@ -64,7 +64,7 @@ public:
 		{
 			for (int i = 0; i < cp; i++)
 			{
-				ptr[i] == temp[i];
+				ptr[i] = temp[i];
 			}
 
 			top = cp - 1;
@@ -75,7 +75,7 @@ public:
 		delete[] temp;
 	}
 
-	T& Top() const
+	T& Top() 
 	{	
 		assert(top >= 0);
 

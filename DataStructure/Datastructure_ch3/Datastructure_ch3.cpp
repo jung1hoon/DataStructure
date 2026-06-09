@@ -1,26 +1,24 @@
-#include "../shared/stack.h"
+#include "Maze.h"
 
 using namespace std;
 
+
 int main()
 {
-	const char str[] = "Hello, World";
-	int size = sizeof(str) / sizeof(str[0]) - 1;
+	
 
-	Stack<char> st1;
+	Pos p1 = { 1,1 };
+	Stack<Pos> p2;
+	p2.push(p1);
 
-	for (int i = 0; i < size; i++)
-	{
-		st1.push(str[i]);
-	}
 
-	for (int i = 0; i < size ; i++)
-	{
-		cout << st1.Top();
-		st1.pop();
-	}
 
-	cout << endl;
+	PrintMaze();
+
+	//StackMaze(p2);
+	RecurMaze(p1);
+
+	PrintMaze();
 
 
 	return 0;
