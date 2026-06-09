@@ -124,7 +124,7 @@ public:
 	{
 		if (top == -1)
 		{
-			std::cout << "Null" << std::endl;
+			std::cout << "" << std::endl;
 			return;
 		}
 
