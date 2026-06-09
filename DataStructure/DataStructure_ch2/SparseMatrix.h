@@ -21,6 +21,7 @@ public:
 
 	SparseMatrix Transpose() const;
 
+
 	void PrintTerms() const;
 	void Print() const;
 

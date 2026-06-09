@@ -129,6 +129,7 @@ SparseMatrix SparseMatrix::Transpose() const
 	return temp;
 }
 
+
 void SparseMatrix::PrintTerms() const
 {
 	for (int i = 0; i < num_terms; i++)
