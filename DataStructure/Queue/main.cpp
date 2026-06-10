@@ -1,28 +1,15 @@
 #include "../shared/queue.h"
+#include "Josephus.h"
+
+using namespace std;
 
 int main()
 {
-	Queue<int> q(10);
+	char arr[4] = { 'A', 'B', 'C', 'D' };
 
-	q.Enqueue(1);
-	q.Enqueue(2);
-	q.Enqueue(3);
-	q.Enqueue(4);
-	q.Enqueue(5);
+	char result = Josephus2(arr, 4, 3);
 
-	q.Print();
-
-	q.Dequeue();
-
-	q.Print();
-
-	q.Dequeue();
-
-	q.Print();
-
-	q.Dequeue();
-
-	q.Print();
+	cout << result << endl;
 
 	return 0;
 }

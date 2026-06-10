@@ -1,3 +1,6 @@
+#pragma once
+
+
 #include <iostream>
 #include <cassert>
 #include <iomanip>
@@ -75,7 +78,7 @@ public:
 		}
 	}
 
-	int Capacity()
+	int get_capacity()
 	{
 		return capacity;
 	}
@@ -87,11 +90,22 @@ public:
 		return ptr[(front + 1) % capacity];
 	}
 
+	int& get_front()
+	{
+		return front;
+	}
+
+
 	T& Rear()
 	{
 		assert(!IsEmpty());
 
 		return ptr[rear];
+	}
+
+	int& get_rear()
+	{
+		return rear;
 	}
 
 	void Resize()
