@@ -78,7 +78,7 @@ public:
 		}
 	}
 
-	int get_capacity()
+	int& _capacity()
 	{
 		return capacity;
 	}
@@ -90,7 +90,7 @@ public:
 		return ptr[(front + 1) % capacity];
 	}
 
-	int& get_front()
+	int& _front()
 	{
 		return front;
 	}
@@ -103,7 +103,7 @@ public:
 		return ptr[rear];
 	}
 
-	int& get_rear()
+	int& _rear()
 	{
 		return rear;
 	}

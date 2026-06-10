@@ -12,18 +12,27 @@ void print_arr(char arr[], int size)
 	std::cout << std::endl;
 }
 
+//  - A B C D -> A B - C D -> A B - - D
+char Josephus(Queue<char> &q, int k)
+{
+	q.Print();
 
-//char Josephus(Queue<char> q, int k)
-//{
-//	int n = q.Size();
-//	int start = (q.front() + 1) % q.Capacity();
-//
-//	for (int i = 0; i < length; i++)
-//	{
-//
-//	}
-//
-//}
+	while (q.Size() != 1)
+	{
+		for (int i = 0; i < k - 1; i++)
+		{
+			char temp = q.Front();
+			q.Dequeue();
+			q.Enqueue(temp);
+		}
+
+		q.Print();
+		q.Dequeue();
+		q.Print();
+	}
+
+	return q.Front();
+}
 
 // A B C D
 char Josephus2(char arr[], int n, int k)
@@ -63,6 +72,8 @@ char Josephus2(char arr[], int n, int k)
 
 char Josephus3(char * arr, int n, int k)
 {
+	print_arr(arr, n);
+
 	if (n == 1)
 	{
 		return arr[n - 1];
@@ -82,6 +93,8 @@ char Josephus3(char * arr, int n, int k)
 
 		arr[n - 1] = temp;
 	}
+
+	print_arr(arr, n);
 
 	Josephus3(arr + 1, n - 1, k);
 
