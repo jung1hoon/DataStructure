@@ -19,3 +19,4 @@ struct Pos
 
 bool RecurMaze(Pos p);
 bool StackMaze(Stack<Pos>& p);
+

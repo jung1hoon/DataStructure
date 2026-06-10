@@ -4,9 +4,11 @@
     <Platform Name="x86" />
   </Configurations>
   <Folder Name="/shared/">
+    <File Path="shared/queue.h" />
     <File Path="shared/stack.h" />
   </Folder>
   <Project Path="DataStructure/DataStructure.vcxproj" Id="d61ec44a-c453-4a9a-be93-16e7b5dbcf47" />
   <Project Path="DataStructure_ch2/DataStructure_ch2.vcxproj" Id="894edf51-1dbe-4c4e-a601-0ea291aa5f3b" />
   <Project Path="Datastructure_ch3/Datastructure_ch3.vcxproj" Id="9cb91bea-85ad-4136-abb9-85e0f4965dfb" />
+  <Project Path="Queue/Queue.vcxproj" Id="c8c3f0a2-a542-43b9-888c-68e1aa882ca6" />
 </Solution>

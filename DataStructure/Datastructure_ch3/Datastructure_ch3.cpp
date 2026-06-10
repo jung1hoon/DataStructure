@@ -6,7 +6,6 @@ using namespace std;
 
 Stack<char> tower[3]; // 하노이의 탑 문제
 
-
 void PrintTower()
 {
 	std::cout << "Tower" << std::endl;
