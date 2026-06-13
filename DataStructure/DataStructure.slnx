@@ -4,6 +4,7 @@
     <Platform Name="x86" />
   </Configurations>
   <Folder Name="/shared/">
+    <File Path="shared/deque.h" />
     <File Path="shared/queue.h" />
     <File Path="shared/stack.h" />
   </Folder>

@@ -1,28 +1,36 @@
 #include "../shared/queue.h"
 #include "Josephus.h"
+#include "../shared/deque.h"
 
 using namespace std;
 
 int main()
 {
-	char arr[4] = { 'A', 'B', 'C', 'D' };
+	Deque<char> dq;
 
-	char result = Josephus3(arr, 4, 3);
+	dq.push_front('A');
 
-	cout << result << endl;
+	dq.Print();
 
-	//Queue<char> q(5);
+	dq.push_front('B');
 
-	//for (int i = 0; i < 4; i++)
-	//{
-	//	q.Enqueue('A' + i);
-	//}
+	dq.Print();
 
+	dq.push_front('C');
 
+	dq.Print();
 
-	//char result = Josephus(q, 3);
+	dq.push_back('D');
 
-	//cout << result << endl;
+	dq.Print(); // C B A D
+
+	dq.pop_front();
+
+	dq.Print(); // B A D
+
+	dq.pop_back();
+
+	dq.Print(); // B A 
 
 	return 0;
 }
