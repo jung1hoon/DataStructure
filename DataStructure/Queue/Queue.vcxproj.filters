@@ -21,9 +21,15 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="postfix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Josephus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="postfix.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

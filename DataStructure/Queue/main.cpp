@@ -1,36 +1,30 @@
 #include "../shared/queue.h"
 #include "Josephus.h"
 #include "../shared/deque.h"
+#include "postfix.h"
 
 using namespace std;
 
 int main()
 {
-	Deque<char> dq;
+	const char infix[] = "1+2*3";
+	int size = sizeof(infix) / sizeof(infix[0]) - 1;
+	Queue<char> q1;
 
-	dq.push_front('A');
+	for (int i = 0; i < size; i++)
+	{
+		q1.Enqueue(infix[i]);
+	}
 
-	dq.Print();
+	Queue<char> q2;
 
-	dq.push_front('B');
+	InfixToPostfix(q1, q2);
 
-	dq.Print();
+	q2.Print();
 
-	dq.push_front('C');
+	int r = EvalPostfix(q2);
 
-	dq.Print();
-
-	dq.push_back('D');
-
-	dq.Print(); // C B A D
-
-	dq.pop_front();
-
-	dq.Print(); // B A D
-
-	dq.pop_back();
-
-	dq.Print(); // B A 
+	cout << r << endl;
 
 	return 0;
 }
