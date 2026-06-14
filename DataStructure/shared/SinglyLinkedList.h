@@ -1,4 +1,5 @@
 #pragma once
+#include <cassert>
 
 template<typename T>
 class SinglyLinkedList
@@ -116,6 +117,120 @@ public:
 		else
 		{
 			std::cout << "Empty" << std::endl;
+		}
+	}
+
+	T Get(int index)
+	{	
+		assert(index >= 0);
+		assert(index <= size - 1);
+
+		Node* cur = first;
+
+		for (int i = 0; i < index; i++)
+		{
+			cur = cur->next;
+		}
+
+		return cur->item;
+
+	}
+
+	void Insert(int index, const T& value)
+	{
+		assert(!IsEmpty());
+		assert(index >= 0);
+		assert(index <= size - 1);
+
+		if (index >= 1)
+		{
+			Node* cur = first;
+
+			for (int i = 0; i < index - 1; i++)
+			{
+				cur = cur->next;
+			}
+
+			Node* temp = cur->next;
+
+			cur->next = new Node;
+			cur->next->item = value;
+			cur->next->next = temp;
+
+			size++;
+		}
+		else if (index == 0)
+		{
+			this->pushfront(value);
+		}
+		else
+		{
+			std::cout << "Can't" << std::endl;
+		}
+	}
+
+	void Erase(int index)
+	{
+		assert(!IsEmpty());
+		assert(index >= 0);
+		assert(index <= size - 1);
+
+		if (index >= 1)
+		{
+			Node* cur = first;
+
+			for (int i = 0; i < index - 1; i++)
+			{
+				cur = cur->next;
+			}
+
+			Node* temp = cur->next;
+
+			cur->next = temp->next;
+
+			delete temp;
+
+			size--;
+		}
+		else if (index == 0)
+		{
+			this->popfront();
+		}
+		else
+		{
+			std::cout << "Null" << std::endl;
+		}
+
+
+	}
+
+	void Remove(T value)
+	{
+		assert(!IsEmpty());
+
+		Node* cur = first;
+
+		if (cur->item == value)
+		{
+			this->popfront();
+		}
+		else
+		{
+			while (cur != nullptr && cur->next != nullptr)
+			{
+				if (cur->next->item == value)
+				{
+					Node* temp = cur->next;
+
+					cur->next = temp->next;
+					delete temp;
+					size--;
+				}
+				else
+				{
+					cur = cur->next;
+				}
+			}
 		}
 	}
 
