@@ -1,40 +1,23 @@
 #include "Node.h"
+#include "../shared/SinglyLinkedList.h"
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-    Node* first = new Node;
+    SinglyLinkedList<int> list(1);
 
-    Node* second = new Node;
+    list.pushfront(2);
+    list.Print();
 
-    Node* third = new Node;
+    list.pushback(3);
+    list.Print();
 
-    first->next = second;
-    second->next = third;
-
-    Node* cur = first;
-
-    for (int i = 1; i <= 3; i++)
-    {    
-        if (cur != nullptr)
-        {
-            SetItem(cur, i);
-            cur = cur->next;
-        }
-    }
+    list.popfront();
+    list.Print();
 
 
-    Recurprint(first);
-
-    std::cout << std::endl;
-
-    Iterprint(first);
-
-    std::cout << std::endl;
-
-    delete_(first);
 
     return 0;
 }

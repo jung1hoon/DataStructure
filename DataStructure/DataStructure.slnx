@@ -6,6 +6,7 @@
   <Folder Name="/shared/">
     <File Path="shared/deque.h" />
     <File Path="shared/queue.h" />
+    <File Path="shared/SinglyLinkedList.h" />
     <File Path="shared/stack.h" />
   </Folder>
   <Project Path="Ch5_Node/Ch5_Node.vcxproj" Id="58769db2-193a-4ea0-ab78-d6b51413d789" />
