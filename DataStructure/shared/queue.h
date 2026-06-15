@@ -21,7 +21,6 @@ protected:
 	int front = 0;
 	int rear = 0;
 	int capacity = 2;
-	bool print_debug = false;
 
 public:
 	Queue(int capacity_ = 2)

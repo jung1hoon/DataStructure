@@ -31,6 +31,8 @@ int main()
 
     list.Print();
 
+    list.Reverse();
+    list.Print();
 
     return 0;
 }

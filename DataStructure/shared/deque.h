@@ -8,7 +8,7 @@
 template<typename T>
 class Deque : public Queue<T>
 {
-
+	
 public:
 
 	void push_front(const T& value)
