@@ -234,6 +234,30 @@ public:
 		}
 	}
 
+	void Reverse()
+	{
+		assert(!IsEmpty());
+
+		if (first != nullptr && first->next == nullptr)
+		{
+			return;
+		}
+
+		Node* cur = first;
+		Node* pre = nullptr;
+
+		while (cur != nullptr)
+		{
+			Node* temp = cur->next;
+
+			cur->next = pre;
+			pre = cur;
+			cur = temp;
+		}
+
+		first = pre;
+	}
+
 	void Print()
 	{
 		if (!IsEmpty())

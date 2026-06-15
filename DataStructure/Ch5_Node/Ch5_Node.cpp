@@ -39,6 +39,10 @@ int main()
 
     list.Remove(9);
     list.Print();
+    
+    list.Reverse();
+    list.Print();
+
 
     return 0;
 }
