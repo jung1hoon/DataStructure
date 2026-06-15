@@ -1,5 +1,6 @@
 #pragma once
 #include <cassert>
+#include <iostream>
 
 template<typename T>
 class SinglyLinkedList
@@ -25,21 +26,28 @@ public:
 
 	SinglyLinkedList(const SinglyLinkedList& list)
 	{
-		first = new Node;
-		size = list.size;
-		first->item = list.first->item;
-
-		Node* cur = first;
-		Node* cur_list = list.first;
-
-		while (cur_list->next != nullptr)
+		if (!list.IsEmpty())
 		{
-			cur->next = new Node;
-			cur->next->item = cur_list->next->item;
-			cur = cur->next;
-			cur_list = cur_list->next;
-		}
+			first = new Node;
+			size = list.size;
+			first->item = list.first->item;
 
+			Node* cur = first;
+			Node* cur_list = list.first;
+
+			while (cur_list->next != nullptr)
+			{
+				cur->next = new Node;
+				cur->next->item = cur_list->next->item;
+				cur = cur->next;
+				cur_list = cur_list->next;
+			}
+		}
+		else
+		{
+			first = nullptr;
+			size = 0;
+		}
 	}
 
 	~SinglyLinkedList()
@@ -62,7 +70,7 @@ public:
 		size = 0;
 	}
 
-	bool IsEmpty()
+	bool IsEmpty() const
 	{
 		return first == nullptr;
 	}

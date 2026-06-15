@@ -1,46 +1,34 @@
 #include "Node.h"
 #include "../shared/SinglyLinkedList.h"
+#include "../shared/DoublyLinkedList.h"
 #include <iostream>
 
 using namespace std;
 
 int main()
 {
-    SinglyLinkedList<int> list(1);
+    DoublyLinkedList<int> list;
 
+    list.pushfront(1);
     list.pushfront(2);
-    list.Print();
+    list.pushfront(3);
+    list.pushfront(4);
+    list.pushfront(5);
 
+    list.pushback(1);
+    list.pushback(2);
     list.pushback(3);
-    list.Print();
+    list.pushback(4);
+    list.pushback(5);
 
+    list.Remove(1);
+    list.Print();
     list.popfront();
-    list.Print();
 
-    int result = list.Get(0);
+    std::cout << endl;
 
-    cout << result << endl;
+    list.Erase(list.Find_index(4));
 
-    list.Insert(1,5);
-    list.Print();
-
-    list.Insert(1, 9);
-    list.Print();
-    list.Insert(3, 9);
-    list.Print();
-    list.Insert(3, 9);
-    list.Print();
-    list.Insert(2, 9);
-    list.Print();
-
-
-    //list.Erase(4);
-    //list.Print();
-
-    list.Remove(9);
-    list.Print();
-    
-    list.Reverse();
     list.Print();
 
 

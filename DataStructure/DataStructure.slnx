@@ -5,6 +5,7 @@
   </Configurations>
   <Folder Name="/shared/">
     <File Path="shared/deque.h" />
+    <File Path="shared/DoublyLinkedList.h" />
     <File Path="shared/queue.h" />
     <File Path="shared/SinglyLinkedList.h" />
     <File Path="shared/stack.h" />
