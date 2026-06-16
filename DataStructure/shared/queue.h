@@ -29,6 +29,11 @@ public:
 
 		capacity = capacity_;
 		ptr = new T[capacity];
+
+		for (int i = 0; i < capacity; i++)
+		{
+			ptr[i] = T();
+		}
 	}
 	Queue(const Queue& q)
 	{
@@ -169,7 +174,11 @@ public:
 
 	void Dequeue()
 	{
-		assert(!IsEmpty());
+		if (IsEmpty())
+		{
+			return;
+		}
+
 		front = (front + 1) % capacity;
 	}
 

@@ -1,6 +1,9 @@
 #pragma once
 #include <iostream>
 #include <cassert>
+#include "stack.h"
+#include "queue.h"
+
 
 template<typename T>
 class BinaryTree
@@ -22,6 +25,7 @@ public:
 	~BinaryTree()
 	{
 		Clear();
+		std::cout << "del" << std::endl;
 	}
 
 private:
@@ -57,7 +61,159 @@ private:
 		return 1 + Count(node->left) + Count(node->right);
 	}
 
+	void preorder(Node* node)
+	{
+		if (node == nullptr)
+		{
+			return;
+		}
+
+		std::cout << node->item << " ";
+
+		if (node->left != nullptr)
+		{
+			preorder(node->left);
+		}
+
+		if (node->right != nullptr)
+		{
+			preorder(node->right);
+		}
+	}
+
+	void Inorder(Node* node)
+	{
+		if (node == nullptr)
+		{
+			return;
+		}
+
+		Inorder(node->left);
+		std::cout << node->item << " ";
+		Inorder(node->right);
+	}
+
+	void Postorder(Node* node)
+	{
+		if (node == nullptr)
+		{
+			return;
+		}
+
+		Postorder(node->left);
+		Postorder(node->right);
+		std::cout << node->item << " ";
+	}
+
+	void Levelorder(Node* node)
+	{
+		if (node == nullptr)
+		{
+			return;
+		}
+
+		Queue<Node*> q;
+
+		q.Enqueue(node);
+		Visit(node);
+
+		while (!q.IsEmpty())
+		{
+			if (q.Front()->left != nullptr)
+			{
+				q.Enqueue(q.Front()->left);
+				Visit(q.Front()->left);
+			}
+
+			if (q.Front()->right != nullptr)
+			{
+				q.Enqueue(q.Front()->right);
+				Visit(q.Front()->right);
+			}
+
+			q.Dequeue();
+		}
+	}
+
+	void IterPreorder(Node* node) // 다시
+	{
+		if (node == nullptr)
+		{
+			return;
+		}
+
+		Stack<Node*> s;
+		s.push(node);
+
+		while (!s.IsEmpty())
+		{
+			Node* cur = s.Top();
+			s.pop();
+			
+			Visit(cur);
+
+			if (cur->right != nullptr)
+			{
+				s.push(cur->right);
+			}
+
+			if (cur->left != nullptr)
+			{
+				s.push(cur->left);
+			}
+		}
+	}
+
+	void IterInorder(Node* node)
+	{
+		if (node == nullptr)
+		{
+			return;
+		}
+
+		Stack<Node*> s;
+		Node* cur = node;
+
+		while (cur != nullptr || !s.IsEmpty())
+		{
+			while (cur != nullptr)
+			{
+				s.push(cur);
+				cur = cur->left;
+			}
+
+			cur = s.Top();
+			this->Visit(cur);
+			s.pop();
+
+			cur = cur->right;
+		}
+	}
+
+	void IterPostorder(Node* node)
+	{
+
+	}
+
+	void Clear(Node* node)
+	{
+		if (node == nullptr)
+		{
+			return;
+		}
+
+		Clear(node->left);
+		Clear(node->right);
+
+		delete node;
+	}
+
 public:
+
+	void Visit(Node* node)
+	{
+		std::cout << node->item << " ";
+	}
 
 	int Height()
 	{
@@ -74,10 +230,44 @@ public:
 		return Count(root);
 	}
 
+	void preorder()
+	{
+		preorder(root);
+	}
+
+	void Inorder()
+	{
+		Inorder(root);
+	}
+
+	void Postorder()
+	{
+		Postorder(root);
+	}
+
+	void Levelorder()
+	{
+		Levelorder(root);
+	}
+
+	void IterPreorder()
+	{
+		IterInorder(root);
+	}
+
+	void IterInorder()
+	{
+		IterInorder(root);
+	}
+
+
+
 	void Clear()
 	{
-		
+		Clear(root);
 
+		root = nullptr;
+		size = 0;
 	}
 
 

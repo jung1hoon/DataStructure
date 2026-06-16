@@ -18,6 +18,11 @@ public:
 		capacity = capacity_;
 
 		ptr = new T[capacity];
+
+		for (int i = 0; i < capacity; i++)
+		{
+			ptr[i] = T();
+		}
 	}
 
 	Stack(const Stack& st)
