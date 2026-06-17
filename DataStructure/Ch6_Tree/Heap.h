@@ -78,13 +78,19 @@ public:
 	{
 		if (!IsEmpty())
 		{
+			if (size == 1)
+			{
+				size--;
+				return;
+			}
+
 			T last = heap[size];
 			size--;
 
 			int cur = 1;
 			int compareLR = 0;
 
-			while (cur != 0)
+			while (cur <= size)
 			{
 				if (cur * 2 <= size && cur * 2 + 1 <= size)
 				{
