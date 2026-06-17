@@ -17,7 +17,7 @@ int main()
     //
     //tree.IterPostorder();
 
-    MaxHeap<int> mh;
+    MinHeap<int> mh;
 
     for (auto h : { 8,4,3,2,5,6 })
     {
