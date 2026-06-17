@@ -135,13 +135,13 @@ private:
 		}
 	}
 
-	void IterPreorder(Node* node) // 다시
+	void IterPreorder(Node* node) 
 	{
 		if (node == nullptr)
 		{
 			return;
 		}
-
+		
 		Stack<Node*> s;
 		s.push(node);
 
@@ -149,7 +149,6 @@ private:
 		{
 			Node* cur = s.Top();
 			s.pop();
-			
 			Visit(cur);
 
 			if (cur->right != nullptr)
@@ -192,7 +191,38 @@ private:
 
 	void IterPostorder(Node* node)
 	{
+		if (node == nullptr)
+		{
+			return;
+		}
 
+		Stack<Node*> s1,s2;
+		s1.push(node);
+
+		while (!s1.IsEmpty())
+		{
+			Node* cur = s1.Top();
+			s1.pop();
+
+			s2.push(cur);
+
+			if (cur->left != nullptr)
+			{
+				s1.push(cur->left);
+			}
+
+			if (cur->right != nullptr)
+			{
+				s1.push(cur->right);
+			}
+		}
+
+		while (!s2.IsEmpty())
+		{
+			Node* cur = s2.Top();
+			s2.pop();
+			Visit(cur);
+		}
 	}
 
 	void Clear(Node* node)
@@ -252,7 +282,7 @@ public:
 
 	void IterPreorder()
 	{
-		IterInorder(root);
+		IterPreorder(root);
 	}
 
 	void IterInorder()
@@ -260,7 +290,10 @@ public:
 		IterInorder(root);
 	}
 
-
+	void IterPostorder()
+	{
+		IterPostorder(root);
+	}
 
 	void Clear()
 	{

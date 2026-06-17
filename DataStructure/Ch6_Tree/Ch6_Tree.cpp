@@ -15,7 +15,7 @@ int main()
 
     BinaryTree<int> tree(n1);
     
-    tree.IterInorder();
+    tree.IterPostorder();
 
     //cout << tree.Sum() << endl;
 
