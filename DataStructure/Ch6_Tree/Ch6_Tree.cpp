@@ -60,8 +60,8 @@ int main()
 
     cout << endl;
 
-    cout << bst.RecurGet(3) << endl;
-
+    cout << bst.Get(3)->value << endl;
+    cout << bst.RecurGet(3)->value << endl;
 
 
     return 0;

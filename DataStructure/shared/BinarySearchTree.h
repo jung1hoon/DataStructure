@@ -106,16 +106,16 @@ private:
 		Inorder(node->right);
 	}
 
-	T2 RecurGet(const T1& key_, Node* node)
+	Item* RecurGet(const T1& key_, Node* node)
 	{
 		if (node == nullptr)
 		{
-			return T2();
+			return nullptr;
 		}
 
 		if (node->item.key == key_)
 		{
-			return node->item.value;
+			return &(node->item);
 		}
 		else if (node->item.key < key_)
 		{
@@ -205,44 +205,30 @@ public:
 		}
 	}
 
-	T2 GetValue(const T1& key_)
+	Item* Get(const T1& key_)
 	{
 		Node* cur = root;
 
-		while (true)
+		while (cur != nullptr)
 		{
 			if (cur->item.key == key_)
 			{
-				return cur->item.value;
+				return &(cur->item);
 			}
 			else if (cur->item.key < key_)
 			{
-				if (cur->right != nullptr)
-				{
-					cur = cur->right;
-				}
-				else
-				{
-					std::cout << "Nothing" << std::endl;
-					return T2();
-				}
+				cur = cur->right;
 			}
 			else if (cur->item.key > key_)
 			{
-				if (cur->left != nullptr)
-				{
-					cur = cur->left;
-				}
-				else
-				{
-					std::cout << "Nothing" << std::endl;
-					return T2();
-				}
+				cur = cur->left;
 			}
 		}
+		std::cout << "Nothing" << std::endl;
+		return nullptr;
 	}
 
-	T2 RecurGet(const T1& key_)
+	Item* RecurGet(const T1& key_)
 	{
 		return RecurGet(key_, root);
 	}
