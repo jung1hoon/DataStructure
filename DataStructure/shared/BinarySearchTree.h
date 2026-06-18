@@ -158,12 +158,22 @@ public:
 	void Insert(const T1& key_, const T2& value_)
 	{
 		Node* cur = root;
+		Node* parent = nullptr;
 		Node* New_Node = new Node;
 
 		New_Node->item.key = key_;
 		New_Node->item.value = value_;
+		New_Node->left = nullptr;
+		New_Node->right = nullptr;
 
-		while (true)
+		if (root == nullptr)
+		{
+			root = New_Node;
+			size++;
+			return;
+		}
+
+		while (cur != nullptr)
 		{
 			if (cur->item.key == New_Node->item.key)
 			{
@@ -173,37 +183,75 @@ public:
 			}
 			else if (cur->item.key < New_Node->item.key)
 			{
-				if (cur->right != nullptr)
-				{
-					cur = cur->right;
-				}
-				else
-				{
-					cur->right = New_Node;
-					size++;
-					return;
-				}
-				
-			}
-			else if(cur->item.key > New_Node->item.key)
-			{
-				if (cur->left != nullptr)
-				{
-					cur = cur->left;
-				}
-				else
-				{
-					cur->left = New_Node;
-					size++;
-					return;
-				}
+				parent = cur;
+				cur = cur->right;
 			}
 			else
 			{
-				break;
+				parent = cur;
+				cur = cur->left;
+			}			
+		}
+
+		if (parent->item.key < New_Node->item.key)
+		{
+			parent->right = New_Node;
+		}
+		else
+		{
+			parent->left = New_Node;
+		}
+
+		size++;
+	}
+
+	void Insert2(const T1& key_, const T2& value_)
+	{
+		Node* cur = root;
+		Node* parent = nullptr;
+
+		while (cur != nullptr)
+		{
+			parent = cur;
+
+			if (key_ == cur->item.key)
+			{
+				cur->item.value = value_;
+				return;
+			}
+			else if (key_ < cur->item.key)
+			{
+				cur = cur->left;
+			}
+			else
+			{
+				cur = cur->right;
 			}
 		}
+
+		Node* newNode = new Node;
+
+		newNode->item.key = key_;
+		newNode->item.value = value_;
+		newNode->left = nullptr;
+		newNode->right = nullptr;
+
+		if (parent == nullptr)
+		{
+			root = newNode;
+		}
+		else if (key_ < parent->item.key)
+		{
+			parent->left = newNode;
+		}
+		else
+		{
+			parent->right = newNode;
+		}
+
+		size++;
 	}
+
 
 	Item* Get(const T1& key_)
 	{
