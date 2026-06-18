@@ -4,6 +4,7 @@
     <Platform Name="x86" />
   </Configurations>
   <Folder Name="/shared/">
+    <File Path="shared/BinarySearchTree.h" />
     <File Path="shared/BinaryTree.h" />
     <File Path="shared/deque.h" />
     <File Path="shared/DoublyLinkedList.h" />

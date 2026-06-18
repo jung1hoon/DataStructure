@@ -37,7 +37,10 @@ private:
 			return 0;
 		}
 
-		return 1 + (Height(node->left) > Height(node->right) ? Height(node->left) : Height(node->right));
+		int leftHeight = Height(node->left);
+		int rightHeight = Height(node->right);
+
+		return 1 + (leftHeight > rightHeight ? leftHeight : rightHeight);
 	}
 
 	int Sum(Node* node)
