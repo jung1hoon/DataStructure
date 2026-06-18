@@ -106,7 +106,7 @@ private:
 		Inorder(node->right);
 	}
 
-	T2 RecurGet(int key_, Node* node)
+	T2 RecurGet(const T1& key_, Node* node)
 	{
 		if (node == nullptr)
 		{
@@ -205,7 +205,7 @@ public:
 		}
 	}
 
-	T2 GetValue(int key_)
+	T2 GetValue(const T1& key_)
 	{
 		Node* cur = root;
 
@@ -242,12 +242,12 @@ public:
 		}
 	}
 
-	T2 RecurGet(int key_)
+	T2 RecurGet(const T1& key_)
 	{
 		return RecurGet(key_, root);
 	}
 
-	Node* FindNode(int key_)
+	Node* FindNode(const T1& key_)
 	{
 		if (root == nullptr)
 		{
@@ -287,7 +287,7 @@ public:
 		return cur;
 	}
 
-	Node* FindParent(int key_)
+	Node* FindParent(const T1& key_)
 	{
 		Node* parent = nullptr;
 		Node* cur = root;
@@ -314,7 +314,7 @@ public:
 	}
 
 
-	void Remove(int key_)
+	void Remove(const T1& key_)
 	{	
 		Node* key_node = FindNode(key_);
 
@@ -394,7 +394,7 @@ public:
 		}
 	}
 
-	void Remove2(int key_)
+	void Remove2(const T1& key_)
 	{
 		Node* key_node = FindNode(key_);
 
