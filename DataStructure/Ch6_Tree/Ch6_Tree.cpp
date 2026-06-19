@@ -51,6 +51,16 @@ int main()
     bst.Print();
 
     bst.Inorder();
+    cout << endl;
+
+    bst.RecurInsert(9, 'I');
+    bst.Print();
+
+    cout << endl;
+    bst.RecurInsert(9, 'J');
+    bst.Print();
+    bst.Inorder();
+
 
     //bst.Remove2(5);
 
@@ -58,10 +68,10 @@ int main()
 
     //bst.Print();
 
-    cout << endl;
+    //cout << endl;
 
-    cout << bst.Get(3)->value << endl;
-    cout << bst.RecurGet(3)->value << endl;
+    //cout << bst.Get(3)->value << endl;
+    //cout << bst.RecurGet(3)->value << endl;
 
 
     return 0;

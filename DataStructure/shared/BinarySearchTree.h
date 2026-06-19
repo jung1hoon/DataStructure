@@ -127,6 +127,66 @@ private:
 		}
 	}
 
+	void RecurInsert(Node* node, const T1& key_, const T2& value_)
+	{
+		if (root == nullptr)
+		{
+			Node* New_Node = new Node;
+			New_Node->item.key = key_;
+			New_Node->item.value = value_;
+			New_Node->left = nullptr;
+			New_Node->right = nullptr;
+
+			root = New_Node;
+			size++;
+			return;
+		}
+
+		if (node->item.key == key_)
+		{
+			node->item.value = value_;
+			return;
+		}
+		else if (node->item.key < key_)
+		{
+			if (node->right == nullptr)
+			{
+				Node* New_Node = new Node;
+				New_Node->item.key = key_;
+				New_Node->item.value = value_;
+				New_Node->left = nullptr;
+				New_Node->right = nullptr;
+
+				node->right = New_Node;
+				size++;
+				return;
+			}
+			else
+			{
+				RecurInsert(node->right, key_, value_);
+			}
+		}
+		else
+		{
+			if (node->left == nullptr)
+			{
+				Node* New_Node = new Node;
+				New_Node->item.key = key_;
+				New_Node->item.value = value_;
+				New_Node->left = nullptr;
+				New_Node->right = nullptr;
+
+				node->left = New_Node;
+				size++;
+				return;
+			}
+			else
+			{
+				RecurInsert(node->left, key_, value_);
+			}
+		}
+	}
+
 
 public:
 
@@ -252,6 +312,10 @@ public:
 		size++;
 	}
 
+	void RecurInsert(const T1& key_, const T2& value_)
+	{
+		RecurInsert(root, key_, value_);
+	}
 
 	Item* Get(const T1& key_)
 	{
