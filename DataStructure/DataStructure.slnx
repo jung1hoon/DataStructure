@@ -14,6 +14,7 @@
   </Folder>
   <Project Path="Ch5_Node/Ch5_Node.vcxproj" Id="58769db2-193a-4ea0-ab78-d6b51413d789" />
   <Project Path="Ch6_Tree/Ch6_Tree.vcxproj" Id="f8b9a538-56ff-4dcd-9fd4-2697f7ec7913" />
+  <Project Path="Ch7_Sorting/Ch7_Sorting.vcxproj" Id="c1f5146c-b442-4d42-8a68-17bd75684a67" />
   <Project Path="DataStructure/DataStructure.vcxproj" Id="d61ec44a-c453-4a9a-be93-16e7b5dbcf47" />
   <Project Path="DataStructure_ch2/DataStructure_ch2.vcxproj" Id="894edf51-1dbe-4c4e-a601-0ea291aa5f3b" />
   <Project Path="Datastructure_ch3/Datastructure_ch3.vcxproj" Id="9cb91bea-85ad-4136-abb9-85e0f4965dfb" />
