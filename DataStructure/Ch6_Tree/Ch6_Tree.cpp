@@ -32,34 +32,34 @@ int main()
     //mh.Pop();
     //mh.print();
 
-    using Node = BinarySearchTree<int, char>::Node;
+    //using Node = BinarySearchTree<int, char>::Node;
 
-    Node* Root = new Node;
-    Root->item.key = 5;
-    Root->item.value = 'A';
+    //Node* Root = new Node;
+    //Root->item.key = 5;
+    //Root->item.value = 'A';
 
-    BinarySearchTree<int, char> bst(Root);
+    //BinarySearchTree<int, char> bst(Root);
 
-    bst.Insert(4, 'B');
-    bst.Insert(7, 'C');
-    bst.Insert(8, 'D');
-    bst.Insert(2, 'E');
-    bst.Insert(1, 'F');
-    bst.Insert(3, 'G');
-    bst.Insert(5, 'H');
+    //bst.Insert1(4, 'B');
+    //bst.Insert1(7, 'C');
+    //bst.Insert1(8, 'D');
+    //bst.Insert1(2, 'E');
+    //bst.Insert1(1, 'F');
+    //bst.Insert1(3, 'G');
+    //bst.Insert1(5, 'H');
 
-    bst.Print();
+    //bst.Print();
 
-    bst.Inorder();
-    cout << endl;
+    //bst.Inorder();
+    //cout << endl;
 
-    bst.RecurInsert(9, 'I');
-    bst.Print();
+    //bst.RecurInsert(9, 'I');
+    //bst.Print();
 
-    cout << endl;
-    bst.RecurInsert(9, 'J');
-    bst.Print();
-    bst.Inorder();
+    //cout << endl;
+    //bst.RecurInsert(9, 'J');
+    //bst.Print();
+    //bst.Inorder();
 
 
     //bst.Remove2(5);
@@ -72,6 +72,26 @@ int main()
 
     //cout << bst.Get(3)->value << endl;
     //cout << bst.RecurGet(3)->value << endl;
+
+    using Node = BinarySearchTree<int, char>::Node;
+    Node* Root = new Node;
+    Root->item.key = 1;
+    Root->item.value = 'A';
+
+    AVL<int, char> bt(Root);
+
+    bt.Insert(2, 'B');
+    bt.Print();
+    cout << endl;
+
+    bt.Insert(3, 'C');
+    bt.Print();
+    cout << endl;
+
+    bt.Insert(4, 'D');
+    bt.Print();
+    cout << endl;
+
 
 
     return 0;

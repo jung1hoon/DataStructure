@@ -36,7 +36,8 @@ public:
 		Clear();
 	}
 
-private:
+protected:
+
 	Node* root = nullptr;
 	int size = 0;
 
@@ -215,7 +216,7 @@ public:
 		Inorder(root);
 	}
 
-	void Insert(const T1& key_, const T2& value_)
+	void Insert1(const T1& key_, const T2& value_)
 	{
 		Node* cur = root;
 		Node* parent = nullptr;
@@ -613,4 +614,145 @@ public:
 			std::cout << std::endl;
 		}
 	}
+};
+
+
+
+template<typename T1, typename T2>
+class AVL : public BinarySearchTree<T1, T2>
+{
+public:
+	using Base = BinarySearchTree<T1, T2>;
+	using Node = BinarySearchTree<T1, T2>::Node;
+	using Item = BinarySearchTree<T1, T2>::Item;
+
+	AVL(Node* node) : BinarySearchTree<T1, T2>(node)
+	{
+
+	}
+
+	~AVL() {}
+
+	int Balance(Node* node)
+	{
+		if (node != nullptr)
+		{
+			return this->Height(node->left) - this->Height(node->right);
+		}
+		else
+		{
+			return 0;
+		}
+	}
+	
+	void RotateLeft(Node*& node)
+	{
+		if (node == nullptr || node->right == nullptr)
+		{
+			return;
+		}
+
+		Node* newRoot = node->right;
+		Node* temp = newRoot->left;
+
+		newRoot->left = node;
+		node->right = temp;
+
+		node = newRoot;
+	}
+
+	void RotateRight(Node*& node)
+	{
+		if (node ==  nullptr || node->left == nullptr)
+		{
+			return;
+		}
+
+		Node* newRoot = node->left;
+		Node* temp = newRoot->right;
+
+		newRoot->right = node;
+		node->left = temp;
+
+		node = newRoot;
+	}
+
+private:
+
+	void Insert(Node*& node, const T1& key_, const T2& value_)
+	{
+		// 1. 빈 자리에 도착하면 새 노드 생성
+		if (node == nullptr)
+		{
+			Node* newNode = new Node;
+
+			newNode->item.key = key_;
+			newNode->item.value = value_;
+			newNode->left = nullptr;
+			newNode->right = nullptr;
+
+			node = newNode;
+			this->size++;
+			return;
+		}
+
+		// 2. BST 규칙대로 삽입
+		if (key_ < node->item.key)
+		{
+			Insert(node->left, key_, value_);
+		}
+		else if (key_ > node->item.key)
+		{
+			Insert(node->right, key_, value_);
+		}
+		else
+		{
+			// key가 이미 있으면 value만 갱신
+			node->item.value = value_;
+			return;
+		}
+
+		// 3. 삽입 후 현재 노드 기준으로 균형 검사
+		int balance = Balance(node);
+
+		// LL case
+		if (balance > 1 && Balance(node->left) >= 0)
+		{
+			RotateRight(node);
+			return;
+		}
+
+		// RR case
+		if (balance < -1 && Balance(node->right) <= 0)
+		{
+			RotateLeft(node);
+			return;
+		}
+
+		// LR case
+		if (balance > 1 && Balance(node->left) < 0)
+		{
+			RotateLeft(node->left);
+			RotateRight(node);
+			return;
+		}
+
+		// RL case
+		if (balance < -1 && Balance(node->right) > 0)
+		{
+			RotateRight(node->right);
+			RotateLeft(node);
+			return;
+		}
+	}
+
+public:
+
+	void Insert(const T1& key_, const T2& value_)
+	{
+		Insert(this->root, key_, value_);
+	}
+
+
+
 };
