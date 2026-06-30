@@ -1,6 +1,6 @@
 #include "sorting.h"
 
-void swap(int a, int b)
+void swap(int& a, int& b)
 {
 	int temp = a;
 	a = b;
@@ -193,4 +193,45 @@ void MergeSort2(int arr[], int left, int right)
 
 		Merge2(arr, left, mid, right);
 	}
+}
+
+int Partition(int arr[], int left, int right)
+{
+	int i = left;
+	int j = right;	
+	int p = arr[(left + right) / 2];
+
+	while (i <= j)
+	{
+		while (arr[i] < p)
+		{
+			i++;
+		}
+
+		while (arr[j] > p)
+		{
+			j--;
+		}
+
+		if (i <= j)
+		{
+			swap(arr[i], arr[j]);
+			i++;
+			j--;
+		}		
+	}
+
+	return i;
+}
+
+void QuickSort(int arr[], int left, int right)
+{
+	if (left >= right)
+	{
+		return;
+	}
+	int p = Partition(arr, left, right);
+
+	QuickSort(arr, left, p - 1);
+	QuickSort(arr, p, right);
 }

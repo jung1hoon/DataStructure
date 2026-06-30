@@ -2,7 +2,7 @@
 #include <iostream>
 
 void Print(int arr[], int n);
-void swap(int a, int b);
+void swap(int& a, int& b);
 
 void InsertionSort(int arr[], int n);
 void InsertionSort(int arr[], int n, int gap);
@@ -13,3 +13,5 @@ void Merge2(int arr[], int left, int mid, int right);
 void MergeSort(int arr[], int merged[], int left, int right);
 void MergeSort2(int arr[], int left, int right);
 
+int Partition(int arr[], int left, int right);
+void QuickSort(int arr[], int left, int right);
