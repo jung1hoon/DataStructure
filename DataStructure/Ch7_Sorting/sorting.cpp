@@ -235,3 +235,47 @@ void QuickSort(int arr[], int left, int right)
 	QuickSort(arr, left, p - 1);
 	QuickSort(arr, p, right);
 }
+
+int GetMax(int arr[], int n)
+{
+	int maxValue = arr[0];
+
+	for (int i = 1; i < n; i++)
+	{
+		if (arr[i] > maxValue)
+		{
+			maxValue = arr[i];
+		}
+	}
+
+	return maxValue;
+}
+
+
+void RadixSort(int arr[], int n)
+{
+	Queue<int> buckets[10];
+
+	int maxValue = GetMax(arr, n);
+
+	for (int exp = 1; maxValue / exp > 0; exp *= 10)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			int digit = (arr[i] / exp) % 10;
+			buckets[digit].Enqueue(arr[i]);
+		}
+
+		int index = 0;
+
+		for (int digit = 0; digit < 10; digit++)
+		{
+			while (!buckets[digit].IsEmpty())
+			{
+				arr[index] = buckets[digit].Front();
+				buckets[digit].Dequeue();
+				index++;
+			}
+		}
+	}
+}

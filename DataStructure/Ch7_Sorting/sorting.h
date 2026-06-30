@@ -1,5 +1,6 @@
 #pragma once
 #include <iostream>
+#include "../shared/queue.h"
 
 void Print(int arr[], int n);
 void swap(int& a, int& b);
@@ -15,3 +16,6 @@ void MergeSort2(int arr[], int left, int right);
 
 int Partition(int arr[], int left, int right);
 void QuickSort(int arr[], int left, int right);
+
+int GetMax(int arr[], int n);
+void RadixSort(int arr[], int n);

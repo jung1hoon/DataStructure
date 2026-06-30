@@ -19,7 +19,9 @@ int main()
 	//MergeSort(arr, merged, 0, n - 1);
 	//MergeSort2(arr, 0, n - 1);
 
-	QuickSort(arr, 0, n - 1);
+	//QuickSort(arr, 0, n - 1);
+	RadixSort(arr, n);
+
 
 	Print(arr, n);
 
