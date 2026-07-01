@@ -103,3 +103,111 @@ int SequentialSearch(int arr[], int start, int stop, int x)
 	return -1;
 }
 
+
+IndexTable::IndexTable(int arr[], int size, int m)
+{
+	if (size <= 0 || m <= 0 || m > size)
+	{
+		ptr = nullptr;
+		return;
+	}
+
+	ptr = new Index_key[m];
+
+	int j = 0;
+
+	for (int i = 0; i < m; i++)
+	{
+		ptr[i].index = j;
+		ptr[i].key = arr[j];
+		j += size / m;
+	}
+}
+
+IndexTable::~IndexTable()
+{
+	if (ptr != nullptr)
+	{
+		delete[] ptr;
+	}
+}
+
+int IndexSearch(int arr[], int size, int m, int x)
+{
+	if (x < arr[0] || x > arr[size - 1])
+	{
+		return -1;
+	}
+
+	IndexTable itb(arr, size, m);
+
+	for (int i = 0; i < m; i++)
+	{
+		if (itb.ptr[i].key == x)
+		{
+			return itb.ptr[i].index;
+		}
+	}
+	
+	int i = 0;
+
+	for (; i < m - 1; i++)
+	{
+		if (itb.ptr[i].key < x && itb.ptr[i + 1].key > x)
+		{
+			break;
+		}
+	}
+
+	//std::cout << i << std::endl;
+
+	if (i == m - 1)
+	{
+		int start = itb.ptr[i].index;
+		int stop = size - 1;
+
+		return SequentialSearch(arr, start, stop, x);
+	}
+
+	int start = itb.ptr[i].index;
+	int stop = itb.ptr[i + 1].index;
+
+	return SequentialSearch(arr, start, stop, x);
+
+}
+
+int IndexSearch2(int arr[], int size, int m, int x)
+{
+	if (size <= 0 || m <= 0 || m > size)
+	{
+		return -1;
+	}
+
+	if (x < arr[0] || x > arr[size - 1])
+	{
+		return -1;
+	}
+
+	IndexTable itb(arr, size, m);
+
+	int i = 0;
+
+	while (i < m - 1 && itb.ptr[i + 1].key <= x)
+	{
+		i++;
+	}
+
+	int start = itb.ptr[i].index;
+	int stop;
+
+	if (i == m - 1)
+	{
+		stop = size - 1;
+	}
+	else
+	{
+		stop = itb.ptr[i + 1].index - 1;
+	}
+
+	return SequentialSearch(arr, start, stop, x);
+}
