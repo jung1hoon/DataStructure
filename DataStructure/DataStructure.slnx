@@ -16,6 +16,7 @@
   <Project Path="Ch6_Tree/Ch6_Tree.vcxproj" Id="f8b9a538-56ff-4dcd-9fd4-2697f7ec7913" />
   <Project Path="Ch7_Sorting/Ch7_Sorting.vcxproj" Id="c1f5146c-b442-4d42-8a68-17bd75684a67" />
   <Project Path="Ch8_Hashing/Ch8_Hashing.vcxproj" Id="3ef2e98a-7afb-4987-b417-a594b0e0c9f9" />
+  <Project Path="Ch9_Graph/Ch9_Graph.vcxproj" Id="626547d8-4b2e-4505-b5f0-658a11358269" />
   <Project Path="DataStructure/DataStructure.vcxproj" Id="d61ec44a-c453-4a9a-be93-16e7b5dbcf47" />
   <Project Path="DataStructure_ch2/DataStructure_ch2.vcxproj" Id="894edf51-1dbe-4c4e-a601-0ea291aa5f3b" />
   <Project Path="Datastructure_ch3/Datastructure_ch3.vcxproj" Id="9cb91bea-85ad-4136-abb9-85e0f4965dfb" />
