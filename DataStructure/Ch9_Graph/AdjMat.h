@@ -101,6 +101,11 @@ public:
 
 	void DFS(int u)
 	{
+		if (u < 0 || u >= n)
+		{
+			return;
+		}
+
 		if (visited[u] == true)
 		{
 			return;
@@ -121,6 +126,11 @@ public:
 
 	void BFS(int u)
 	{
+		if (u < 0 || u >= n)
+		{
+			return;
+		}
+
 		if (visited[u] == true)
 		{
 			return;

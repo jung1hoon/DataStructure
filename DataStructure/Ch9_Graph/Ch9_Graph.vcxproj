@@ -142,6 +142,7 @@
     <ClCompile Include="Ch9_Graph.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdjList.h" />
     <ClInclude Include="AdjMat.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
